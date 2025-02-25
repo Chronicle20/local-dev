@@ -1,0 +1,18 @@
+version:                                    '3.5'
+services:
+  nginx:
+    build:
+      context:                              .
+      dockerfile:                           nginx.Dockerfile
+    environment:
+      LOGSPOUT:                             ignore
+    networks:
+      - internal-net
+    ports:
+      - '80:80'
+    expose:
+      - '80'
+    container_name:                         local-nginx
+networks:
+  internal-net:
+    name:                                   internal-net
